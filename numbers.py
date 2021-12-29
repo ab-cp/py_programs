@@ -1,0 +1,5 @@
+num1=int(input("Enter a number:"))
+num2=int(input("Enter another number:"))
+if num1 == num2: print ("Your numbers are equal")
+if num1 < num2: print ("Your first number is smaller that your second")
+if num1 > num2: print ("Your first number is greater than your second")
