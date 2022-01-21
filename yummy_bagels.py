@@ -1,13 +1,13 @@
 import random
 
 NUM_DIGITS = 3 # (!) Try setting this to 1 or 10.
-MAX_GUSSES = 10 # (!) Try setting this to 1 or 100.
+MAX_GUESSES = 10 # (!) Try setting this to 1 or 100.
 
 
 
 def main ():
 	print('''Bagels, a deductive logic game.
-By Al Sweigart al@inventwithpython.com
+	By Al Sweigart al@inventwithpython.com
 
 I am thinking of a {}-digit number with no repeated digits.
 Try to guess what it is. Heere are some clues:
@@ -45,7 +45,7 @@ clues would be Fermi Pico.'''.format(NUM_DIGITS))
 
 		# Ask player of they want to play again.
 		print ('Do you want to play again?(yes or no)')
-		if not imput('> ').lower().startawith('y'):
+		if not input('> ').lower().startswith('y'):
 			break
 		print('Thanks for playing!')
 
@@ -62,32 +62,32 @@ def getSecretNum():
 
 
 def getClues(guess, secretNum):
-    """Returns a string with pico, fermi, bagels clue for a guess
-    and secret number pair."""
+	"""Returns a string with pico, fermi, bagels clue for a guess and secret number pair."""
 	if guess == secretNum:
-	return 'You got it!'
+		return 'You got it!'
 	
-    clues = []
+	clues = []
 
-    for i in range(len(guess)):
-	if guess[i] == secretNum[i]:
-	    # A correct digit is in the correct place.
-	    clues.append('Fermi')
-	elif guess[i] in secretNum:
-	    # A correct digit is in the incorrect place.
-	    clues.append('Pico') 
-    if len(clues) == 0:
-	return 'Bagels' # There are no correct digits at all
-    else:
-	# Sort the clues into alphabetical order so their order
-	# doesn't give information away.
-	clues.sort()
-	# Make a single string from the list of string clues.
-	return ''.join(clues)
+	for i in range(len(guess)):
+		if guess[i] == secretNum[i]:
+	    		# A correct digit is in the correct place.
+	    		clues.append('Fermi')
+		elif guess[i] in secretNum:
+	    		# A correct digit is in the incorrect place.
+	    		clues.append('Pico') 
+    	
+	if len(clues) == 0:
+		return 'Bagels' # There are no correct digits at all
+	else:
+		# Sort the clues into alphabetical order so their order
+		# doesn't give information away.
+		clues.sort()
+		# Make a single string from the list of string clues.
+		return ''.join(clues)
 
 
 # If the program is run (instead of imported), run the game:
-if _name_ == ' _main_':
+if __name__ == '__main__':
    main()
 
 
