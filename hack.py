@@ -42,8 +42,8 @@ def main():
 			print('A C C E S S    G R A N T E D')
 			return
 		else:
-			numMatches = numMatchesLetters(secretPassword, playerMove)
-			print('Access Denied ({}/7 correct)'.format(numMatches))
+			numMatching = numMatchingLetters(secretPassword, playerMove)
+			print('Access Denied ({}/7 correct)'.format(numMatching))
 	print('Out of tries. Secret password was {}.'.format(secretPassword))
 
 
@@ -121,7 +121,7 @@ def getComputerMemoryString(words):
 	memoryAddress = 16 * random.randint(0, 4000)
 
 	# Create the "computer memory" string.
-	comuterMemory = [] # Will contain 16 strings, one for each line.
+	computerMemory = [] # Will contain 16 strings, one for each line.
 	nextWord = 0 # The index in wordsof the word to put into a line.
 	for lineNum in range(16): # The "computer memory" has 16 lines.
 		# Create a half line of garbage characters:
@@ -135,20 +135,19 @@ def getComputerMemoryString(words):
 			# Find a random place in the half line to insert the word:
 			insertionIndex = random.randint(0, 9)
 			# Insert the word:
-			leftHalf = (leftHalf[:insertionIndex] + words
-			[nextWord]
+			leftHalf = (leftHalf[:insertionIndex] + words[nextWord]
 				+ leftHalf[insertionIndex + 7:])
 			nextWord += 1 # Update the word to put in the half line.
 		if lineNum + 16 in linesWithWords:
 			# Find a random place in the half line to insert the word:
 			insertionIndex = random.randint(0, 9)
 			# Insert the word:
-			leftHalf = (rightHalf[:insertionIndex] + words [nextWord] + rightHalf[insertionIndex + 7:])
+			rightHalf = (rightHalf[:insertionIndex] + words [nextWord] + rightHalf[insertionIndex + 7:])
 			nextWord += 1 # Update the word to put in the half line.
 
 
 
-		comuterMemory.append('0x' + hex(memoryAddress)[2:].zfill(4)
+		computerMemory.append('0x' + hex(memoryAddress)[2:].zfill(4)
 			+ '  ' + leftHalf + '  '
 			+ 'Ox' + hex(memoryAddress + (16*16))[2:].zfill(4)
 			+ '  ' + rightHalf)
