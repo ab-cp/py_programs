@@ -9,11 +9,11 @@ class GameObject:
         self.velocity = Vector2(velocity)
 
     def draw(self, surface):
-        blit_position = self.position = Vector2(self.radius)
-        surface.blit(self.sprite. blit_position)
+        blit_position = self.position - Vector2(self.radius)
+        surface.blit(self.sprite, blit_position)
 
     def move(self):
-        self.position = self.poition + self.velocity
+        self.position = self.position + self.velocity
 
     def collides_with(self, other_obj):
         distance = self.position.distance_to(other_obj.position)
