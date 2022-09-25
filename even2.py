@@ -13,4 +13,3 @@ for y in numbers:
 et = time.time()
 elapsed_time = et - st
 print ('Execution time:', elapsed_time, 'seconds')
-
